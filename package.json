@@ -1,0 +1,38 @@
+{
+  "name": "free-courses-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node ./src/server",
+    "dev-server": "nodemon --require @babel/register ./src/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrincewillIroka/Free-Courses-Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrincewillIroka/Free-Courses-Backend/issues"
+  },
+  "homepage": "https://github.com/PrincewillIroka/Free-Courses-Backend#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "hpp": "^0.2.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/register": "^7.9.0",
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2"
+  }
+}
