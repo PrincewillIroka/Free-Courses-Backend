@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import hpp from "hpp";
 import helmet from "helmet";
+import scraper from "./scraper";
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,12 +23,10 @@ app.all("*", (req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res
-    .status(200)
-    .json({
-      message:
-        "Welcome to Free Courses App!!!",
-    });
+  scraper();
+  // res.status(200).json({
+  //   message: "Welcome to Free Courses App!!!",
+  // });
 });
 
 export default app;
