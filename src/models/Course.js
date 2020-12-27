@@ -4,8 +4,10 @@ const ObjectId = mongoose.Schema.Types.ObjectId;
 const CoursesShema = new mongoose.Schema(
   {
     title: String,
+    description: String,
     banner: String,
     stars: Number,
+    source: String,
   },
   { usePushEach: true, timestamps: true }
 );

@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node --require @babel/register ./src/server",
-    "dev-server": "nodemon --require @babel/register ./src/server"
+    "dev": "nodemon --require @babel/register ./src/server"
   },
   "repository": {
     "type": "git",
