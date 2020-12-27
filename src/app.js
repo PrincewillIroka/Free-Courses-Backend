@@ -25,10 +25,10 @@ app.all("*", (req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  scraper();
-  // res.status(200).json({
-  //   message: "Welcome to Free Courses App!!!",
-  // });
+  // scraper();
+  res.status(200).json({
+    message: "Welcome to Free Courses App!!!",
+  });
 });
 
 export default app;
