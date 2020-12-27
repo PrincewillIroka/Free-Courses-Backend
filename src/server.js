@@ -1,5 +1,6 @@
 import http from "http";
 import app from "./app";
+import database from "./database";
 
 const normalizePort = (val) => {
   const port = parseInt(val, 10);
@@ -13,7 +14,7 @@ const normalizePort = (val) => {
   return false;
 };
 
-const port = normalizePort(process.env.PORT || 7070);
+const port = normalizePort(process.env.APP_PORT || 7070);
 
 app.set("port", port);
 
@@ -41,10 +42,11 @@ const errorHandler = (error) => {
 };
 
 server.on("error", errorHandler);
-server.on("listening", () => {
+server.on("listening", async () => {
   const address = server.address();
   const bind =
     typeof address === "string" ? `pipe ${address}` : `port: ${port}`;
+  await database.connect();
   console.log(`Listening on ${bind}`);
 });
 
