@@ -20,7 +20,7 @@ export default {
         );
       } else {
         mongoose.connect(
-          `mongodb+srv://${config.db.online_db_user}:${config.db.online_db_pass}@cluster0-olxiu.mongodb.net/nicasod`,
+          `mongodb+srv://${config.db.online_db_user}:${config.db.online_db_pass}@cluster0-olxiu.mongodb.net/${config.db.online_db_database}`,
           { useNewUrlParser: true, useUnifiedTopology: true }
         );
       }

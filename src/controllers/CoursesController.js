@@ -17,6 +17,7 @@ export const getCourses = async (req, res) => {
       .skip(pageNumber)
       .limit(limit)
       .lean();
+    console.log(courses);
     res.json(successData(courses));
   } catch (error) {
     res.status(500).json(serverError());
