@@ -3,7 +3,7 @@ require("dotenv").config();
 import Joi from "@hapi/joi";
 
 const envVarsSchema = Joi.object({
-  APP_PORT: Joi.string(),
+  PORT: Joi.string(),
   APP_HOST: Joi.string(),
   DB_HOST: Joi.string(),
   DB_PORT: Joi.number(),
@@ -21,7 +21,7 @@ const { error, value: envVars } = envVarsSchema.validate(process.env);
 
 export default {
   host: process.env.APP_HOST,
-  port: process.env.APP_PORT,
+  port: process.env.PORT,
   db: {
     database: envVars.DB_DATABASE,
     pass: envVars.DB_PASSWORD,
