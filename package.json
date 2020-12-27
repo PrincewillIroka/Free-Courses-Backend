@@ -32,15 +32,15 @@
     "hpp": "^0.2.3",
     "mongoose": "^5.10.14",
     "node-schedule": "^1.3.2",
-    "playwright": "^1.4.2"
+    "playwright": "^1.4.2",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.11.5",
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.11.6",
     "@babel/node": "^7.12.10",
-    "@babel/plugin-transform-runtime": "^7.12.10",
     "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.11.5",
     "@babel/register": "^7.11.5",
     "babel-loader": "^8.2.2",
     "eslint": "^7.10.0",
