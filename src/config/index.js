@@ -11,6 +11,8 @@ const envVarsSchema = Joi.object({
   DB_USERNAME: Joi.string(),
   DB_PASSWORD: Joi.string(),
   DB_AUTH_SOURCE: Joi.string(),
+  ONLINE_DB_USER: Joi.string(),
+  ONLINE_DB_PASSWORD: Joi.string(),
 })
   .unknown(true)
   .required();
@@ -27,5 +29,7 @@ export default {
     port: envVars.DB_PORT,
     host: envVars.DB_HOST,
     authSource: envVars.DB_AUTH_SOURCE,
+    online_db_user: envVars.ONLINE_DB_USER,
+    online_db_pass: envVars.ONLINE_DB_PASSWORD,
   },
 };

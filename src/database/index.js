@@ -5,18 +5,25 @@ import config from "../config";
 export default {
   connect() {
     try {
-      mongoose.connect(
-        `mongodb://${config.db.host}:${config.db.port}/${config.db.database}`,
-        {
-          user: config.db.user,
-          pass: config.db.pass,
-          authSource: config.db.authSource,
-          useFindAndModify: false,
-          useUnifiedTopology: true,
-          useNewUrlParser: true,
-          useCreateIndex: true,
-        }
-      );
+      if (config.environment === "development") {
+        mongoose.connect(
+          `mongodb://${config.db.host}:${config.db.port}/${config.db.database}`,
+          {
+            user: config.db.user,
+            pass: config.db.pass,
+            authSource: config.db.authSource,
+            useFindAndModify: false,
+            useUnifiedTopology: true,
+            useNewUrlParser: true,
+            useCreateIndex: true,
+          }
+        );
+      } else {
+        mongoose.connect(
+          `mongodb+srv://${config.db.online_db_user}:${config.db.online_db_pass}@cluster0-olxiu.mongodb.net/nicasod`,
+          { useNewUrlParser: true, useUnifiedTopology: true }
+        );
+      }
 
       // To fix all deprecation warnings
       mongoose.set("useNewUrlParser", true);
