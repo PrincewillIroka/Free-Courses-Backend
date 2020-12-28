@@ -8,6 +8,7 @@ const CoursesShema = new mongoose.Schema(
     banner: String,
     stars: Number,
     source: String,
+    link: String
   },
   { usePushEach: true, timestamps: true }
 );
