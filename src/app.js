@@ -25,7 +25,7 @@ app.all("*", (req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  // scraper();
+  scraper();
   res.status(200).json({
     message: "Welcome to Free Courses App!!!",
   });

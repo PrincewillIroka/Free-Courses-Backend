@@ -5,3 +5,10 @@ export const getCoursesData = [
   check("limit").exists().isNumeric().trim(),
   body("notifyOnReply").toBoolean(),
 ];
+
+export const searchCoursesData = [
+  check("title").exists().isNumeric().trim(),
+  check("pageNumber").exists().isNumeric().trim(),
+  check("limit").exists().isNumeric().trim(),
+  body("notifyOnReply").toBoolean(),
+];

@@ -23,3 +23,20 @@ export const getCourses = async (req, res) => {
     console.log(error);
   }
 };
+
+export const searchCourses = async (req, res) => {
+  try {
+    let { title, limit, pageNumber } = req.query;
+    limit = Number(limit);
+    pageNumber = Number(pageNumber);
+    const courses = await Course.find({ title })
+      .sort("createdAt")
+      .skip(pageNumber)
+      .limit(limit)
+      .lean();
+    res.json(successData(courses));
+  } catch (error) {
+    res.status(500).json(serverError());
+    console.log(error);
+  }
+};
