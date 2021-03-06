@@ -29,7 +29,9 @@ export const searchCourses = async (req, res) => {
     let { title, limit, pageNumber } = req.query;
     limit = Number(limit);
     pageNumber = Number(pageNumber);
-    const courses = await Course.find({ title })
+    const courses = await Course.find({
+      title: { $regex: title, $options: "i" },
+    })
       .sort("createdAt")
       .skip(pageNumber)
       .limit(limit)

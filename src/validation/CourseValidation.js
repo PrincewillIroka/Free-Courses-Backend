@@ -7,7 +7,7 @@ export const getCoursesData = [
 ];
 
 export const searchCoursesData = [
-  check("title").exists().isNumeric().trim(),
+  check("title").exists().isString().trim(),
   check("pageNumber").exists().isNumeric().trim(),
   check("limit").exists().isNumeric().trim(),
   body("notifyOnReply").toBoolean(),
