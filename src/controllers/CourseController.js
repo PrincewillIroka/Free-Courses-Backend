@@ -1,44 +1,38 @@
-import Course from "../models/Course";
-import {
-  successMessage,
-  successData,
-  errorMessage,
-  errorData,
-  serverError,
-} from "../utils/helpers/ResponseHelper";
+import Course from '../models/Course';
+import { successMessage, successData, errorMessage, errorData, serverError } from '../utils/helpers/ResponseHelper';
 
 export const getCourses = async (req, res) => {
-  try {
-    let { limit, pageNumber } = req.query;
-    limit = Number(limit);
-    pageNumber = Number(pageNumber);
-    const courses = await Course.find({})
-      .sort("createdAt")
-      .skip(pageNumber)
-      .limit(limit)
-      .lean();
-    res.json(successData(courses));
-  } catch (error) {
-    res.status(500).json(serverError());
-    console.log(error);
-  }
+	try {
+		let { limit, pageNumber, categoryId } = req.query;
+		limit = Number(limit);
+		pageNumber = Number(pageNumber);
+		const courses = await Course.find({ ...(categoryId && { categoryId }) })
+			.sort('createdAt')
+			.skip(pageNumber)
+			.limit(limit)
+			.lean();
+		res.json(successData(courses));
+	} catch (error) {
+		res.status(500).json(serverError());
+		console.log(error);
+	}
 };
 
 export const searchCourses = async (req, res) => {
-  try {
-    let { title, limit, pageNumber } = req.query;
-    limit = Number(limit);
-    pageNumber = Number(pageNumber);
-    const courses = await Course.find({
-      title: { $regex: title, $options: "i" },
-    })
-      .sort("createdAt")
-      .skip(pageNumber)
-      .limit(limit)
-      .lean();
-    res.json(successData(courses));
-  } catch (error) {
-    res.status(500).json(serverError());
-    console.log(error);
-  }
+	try {
+		let { title, limit, pageNumber } = req.query;
+		limit = Number(limit);
+		pageNumber = Number(pageNumber);
+		const courses = await Course.find({
+			title: { $regex: title, $options: 'i' },
+		})
+			.sort('createdAt')
+			.skip(pageNumber)
+			.limit(limit)
+			.lean();
+		res.json(successData(courses));
+	} catch (error) {
+		res.status(500).json(serverError());
+		console.log(error);
+	}
 };
