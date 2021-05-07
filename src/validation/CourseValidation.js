@@ -12,3 +12,13 @@ export const searchCoursesData = [
   check("limit").exists().isNumeric().trim(),
   body("notifyOnReply").toBoolean(),
 ];
+
+export const suggestCourseData = [
+  check("title").exists().isString().trim(),
+  check("description").exists().isString().trim(),
+  check("banner").exists().isString().trim(),
+  check("link").exists().isString().trim(),
+  check("stars").exists().isNumeric().trim(),
+  check("source").exists().isString().trim(),
+  body("notifyOnReply").toBoolean(),
+];
