@@ -1,6 +1,6 @@
 import express from "express";
-import { getCourses, searchCourses, testHandler } from "../controllers/CourseController";
-import { getCoursesData, searchCoursesData } from "../validation/CourseValidation";
+import { getCourses, searchCourses, suggestCourse } from "../controllers/CourseController";
+import { getCoursesData, searchCoursesData, suggestCourseData } from "../validation/CourseValidation";
 import { validator } from "../utils/util";
 
 const router = express.Router();
